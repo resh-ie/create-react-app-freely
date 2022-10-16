@@ -64,7 +64,14 @@
     "@storybook/preset-create-react-app": "^4.1.2",
     "@storybook/react": "^6.5.12",
     "@storybook/testing-library": "^0.0.13",
+    "@typescript-eslint/eslint-plugin": "^5.40.0",
+    "@typescript-eslint/parser": "^5.40.0",
     "babel-plugin-named-exports-order": "^0.0.2",
+    "eslint": "^8.25.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-simple-import-sort": "^8.0.0",
+    "eslint-plugin-storybook": "^0.6.6",
+    "eslint-plugin-unused-imports": "^2.0.0",
     "prop-types": "^15.8.1",
     "webpack": "^5.74.0"
   }
