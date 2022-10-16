@@ -7,19 +7,32 @@ interface navBarProps {
 interface navItem {
   title: string;
   link: string;
+  active?: boolean;
 }
 
 const NavBar = ({ navData }: navBarProps) => {
+  const path = window.location.pathname;
   return (
     <nav className='side-nav'>
       <ul>
         {navData.map((item: navItem, index: number) => (
-          <li key={index}>
-            <a href={item.link}>{item.title}</a>
-          </li>
+          <NavItem
+            key={index}
+            link={item.link}
+            title={item.title}
+            active={item.link === path}
+          />
         ))}
       </ul>
     </nav>
   );
 };
+
+function NavItem({ title, link, active }: navItem) {
+  return (
+    <li className={active ? 'active' : ''}>
+      <a href={link}>{title}</a>
+    </li>
+  );
+}
 export default NavBar;

@@ -25,7 +25,7 @@ const App = () => {
   return (
     <div>
       <NavBar navData={NavData} />
-      {component}
+      <div className='container'>{component}</div>
     </div>
   );
 };
