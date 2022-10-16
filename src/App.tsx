@@ -1,4 +1,6 @@
 import { useEffect } from "react";
+import "./App.scss";
+
 import { fetchTripsData } from "./utils/mockApi";
 
 const App = () => {
