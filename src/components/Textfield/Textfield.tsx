@@ -1,20 +1,26 @@
+// import { FieldError } from 'react-hook-form';
+
 interface TextfieldProps {
-  label: string;
+  label?: string;
   value: string;
-  onChange: () => void;
+  register: any;
+  error?: any;
+  name: string;
 }
 
 const Textfield = (props: TextfieldProps) => {
-  const { label, value, onChange, ...rest } = props;
+  const { label, name, value, error, register, ...rest } = props;
   return (
     <div className='textfield'>
-      <label className='textfield__label'>{label}</label>
+      {label && <label className='textfield__label'>{label}</label>}
       <input
         className='textfield__input'
-        value={value}
-        onChange={onChange}
+        aria-invalid={error ? 'true' : 'false'}
+        defaultValue={value}
+        {...register(name)}
         {...rest}
       />
+      {error && <p>{error}</p>}
     </div>
   );
 };

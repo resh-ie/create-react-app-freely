@@ -1,5 +1,12 @@
+import TripForm from '../components/Forms/TripForm';
+
 const Home = () => {
-  return <h1>Home</h1>;
+  return (
+    <div>
+      <h1>Home</h1>
+      <TripForm />
+    </div>
+  );
 };
 
 export default Home;
