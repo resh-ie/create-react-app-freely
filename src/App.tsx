@@ -9,6 +9,7 @@ import Trips from './pages/Trips';
 import { fetchTripsData } from './utils/mockApi';
 
 const App = () => {
+
   useEffect(() => {
     fetchTripsData().then((data) => console.log(data));
   }, []);
