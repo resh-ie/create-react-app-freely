@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { Route, Routes } from 'react-router-dom';
 import './App.scss';
 
 import NavBar from './components/NavBar/NavBar';
@@ -12,20 +13,15 @@ const App = () => {
     fetchTripsData().then((data) => console.log(data));
   }, []);
 
-  let component;
-  switch (window.location.pathname) {
-    case '/':
-      component = <Home />;
-      break;
-    case '/trips':
-      component = <Trips />;
-      break;
-  }
-
   return (
     <div>
       <NavBar navData={NavData} />
-      <div className='container'>{component}</div>
+      <div className='container'>
+        <Routes>
+          <Route path='/' element={<Home />} />
+          <Route path='/trips' element={<Trips />} />
+        </Routes>
+      </div>
     </div>
   );
 };

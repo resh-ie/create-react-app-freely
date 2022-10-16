@@ -1,3 +1,4 @@
+import { Link, useMatch, useResolvedPath } from 'react-router-dom';
 import './_navBar.scss';
 
 interface navBarProps {
@@ -7,31 +8,26 @@ interface navBarProps {
 interface navItem {
   title: string;
   link: string;
-  active?: boolean;
 }
 
 const NavBar = ({ navData }: navBarProps) => {
-  const path = window.location.pathname;
   return (
     <nav className='side-nav'>
       <ul>
         {navData.map((item: navItem, index: number) => (
-          <NavItem
-            key={index}
-            link={item.link}
-            title={item.title}
-            active={item.link === path}
-          />
+          <NavItem key={index} link={item.link} title={item.title} />
         ))}
       </ul>
     </nav>
   );
 };
 
-function NavItem({ title, link, active }: navItem) {
+function NavItem({ title, link }: navItem) {
+  const resolvePath = useResolvedPath(link);
+  const isActive = useMatch({ path: resolvePath?.pathname, end: true });
   return (
-    <li className={active ? 'active' : ''}>
-      <a href={link}>{title}</a>
+    <li className={isActive ? 'active' : ''}>
+      <Link to={link}>{title}</Link>
     </li>
   );
 }
