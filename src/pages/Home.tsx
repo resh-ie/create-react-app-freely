@@ -3,7 +3,7 @@ import TripForm from '../components/Forms/TripForm';
 const Home = () => {
   return (
     <div>
-      <h1>Home</h1>
+      <h1>Welcome to Freely</h1>
       <TripForm />
     </div>
   );

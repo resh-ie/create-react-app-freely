@@ -1,15 +1,18 @@
 import { yupResolver } from '@hookform/resolvers/yup';
+import { useAtom } from 'jotai';
 import { Controller, useFieldArray, useForm } from 'react-hook-form';
 import * as yup from 'yup';
 
+import DatePickerCalendar from '../DatePicker/DatePickerCalendar';
 import Textfield from '../Textfield/Textfield';
+import { tripAtom } from '../../atoms/tripAtom';
 
 // TODO: Move this to a separate file and create a start and end Date component
 const schema = yup
   .object({
-    title: yup.string().required(),
-    startDate: yup.string().required(),
-    endDate: yup.string().required(),
+    name: yup.string().required(),
+    startDate: yup.date().nullable().required('Start date is required'),
+    endDate: yup.date().nullable().required('End date is required'),
     destination: yup.array().of(
       yup.object({
         name: yup.string().required('Destination is required'),
@@ -19,13 +22,18 @@ const schema = yup
   .required();
 
 const TripForm = () => {
+  const maxDestinations = 5;
+  const [trip, setTrip] = useAtom(tripAtom);
+  const maxID = Math.max(...trip.map((d) => parseInt(d.id)), 0);
+  console.log('maxID', maxID);
   const {
     register,
     control,
     handleSubmit,
-    formState: { errors },
+    formState: { errors, isSubmitSuccessful },
   } = useForm({
     defaultValues: {
+      id: '',
       title: 'My Trip',
       // TODO: Add default values for dates to be today and tomorrow
       startDate: '2021-01-01',
@@ -40,22 +48,29 @@ const TripForm = () => {
     name: 'destination',
   });
 
-  const maxDestinations = 5;
-
   const submitTrip = (data: any) => {
-    console.log(data);
+    setTrip([
+      ...trip,
+      { ...data, id: (maxID + 1).toString(), status: 'NOT_STARTED' },
+    ]);
   };
 
   return (
     <form onSubmit={handleSubmit(submitTrip)}>
+      {isSubmitSuccessful && (
+        <div className='success'>Form submitted successfully</div>
+      )}
+
+      {errors && <div className='error'>Form has errors</div>}
+
       <Textfield
         label='Title'
-        name='title'
+        name='name'
         value=''
         register={register}
         error={errors?.title?.message}
       />
-      <Textfield
+      {/* <Textfield
         label='Start Date'
         name='startDate'
         value=''
@@ -68,6 +83,22 @@ const TripForm = () => {
         value=''
         register={register}
         error={errors?.endDate?.message}
+      /> */}
+      <DatePickerCalendar
+        label='Start Date'
+        name='startDate'
+        dateValue={new Date()}
+        // register={register}
+        // error={errors?.startDate?.message}
+        control={control}
+      />
+      <DatePickerCalendar
+        label='End Date'
+        name='endDate'
+        dateValue={new Date()}
+        // register={register}
+        // error={errors?.endDate?.message}
+        control={control}
       />
 
       <div>
