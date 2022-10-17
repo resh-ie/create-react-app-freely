@@ -1,3 +1,7 @@
+import { List, ListItem, ListItemText } from '@mui/material';
+
+import TripHeader from '../TripHeader/TripHeader';
+
 interface ViewTripProps {
   name: string;
   startDate: string;
@@ -14,14 +18,19 @@ const ViewTrip = ({
 }: ViewTripProps) => {
   return (
     <div>
-      <h1>{name}</h1>
-      <div>
-        {startDate} - {endDate}
-      </div>
-      <div>{status}</div>
-      {destinations.map((destination: string, index: number) => (
-        <div key={index}>{destination}</div>
-      ))}
+      <TripHeader
+        name={name}
+        startDate={startDate}
+        endDate={endDate}
+        status={status}
+      />
+      <List sx={{ width: '100%', bgcolor: 'background.paper' }}>
+        {destinations.map((destination: string, index: number) => (
+          <ListItem key={index}>
+            <ListItemText primary={destination} />
+          </ListItem>
+        ))}
+      </List>
     </div>
   );
 };

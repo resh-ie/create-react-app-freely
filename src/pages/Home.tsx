@@ -1,9 +1,13 @@
+import { Typography } from '@mui/material';
+
 import TripForm from '../components/Forms/TripForm';
 
 const Home = () => {
   return (
     <div>
-      <h1>Welcome to Freely</h1>
+      <Typography component='h1' variant='h4' align='center'>
+        Welcome to Freely
+      </Typography>
       <TripForm />
     </div>
   );

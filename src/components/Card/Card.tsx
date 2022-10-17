@@ -1,4 +1,5 @@
-import Tag from '../Tag/Tag';
+import styles from './_card.module.scss';
+import TripHeader from '../TripHeader/TripHeader';
 
 interface CardProps {
   title: string;
@@ -9,14 +10,8 @@ interface CardProps {
 
 const Card = ({ title, startDate, endDate, status }: CardProps) => {
   return (
-    <div className='card'>
-      <div className='card__title'>{title}</div>
-      <div className='card__date'>
-        {startDate} - {endDate}
-      </div>
-      <div className='card__status'>
-        <Tag label={status} />
-      </div>
+    <div className={styles.card}>
+    <TripHeader name={title} startDate={startDate} endDate={endDate} status={status} />
     </div>
   );
 };

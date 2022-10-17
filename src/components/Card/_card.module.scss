@@ -1,6 +1,6 @@
 .card {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: space-between;
   background-color: #fff;
   border-radius: 0.5rem;
@@ -12,16 +12,6 @@
   &:hover {
     transform: translateY(-0.5rem);
     box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
-  }
-
-  &__title {
-    font-size: 1.5rem;
-    font-weight: 500;
-    margin-bottom: 1rem;
-  }
-  &__date {
-    font-size: 0.8rem;
-    font-weight: 500;
-    margin-bottom: 1rem;
+    background-color: #c6fbf8;
   }
 }

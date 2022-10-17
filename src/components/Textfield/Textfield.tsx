@@ -1,27 +1,30 @@
 // import { FieldError } from 'react-hook-form';
 
+import { TextField } from '@mui/material';
+
 interface TextfieldProps {
   label?: string;
   value: string;
   register: any;
   error?: any;
   name: string;
+  className?: string;
 }
 
 const Textfield = (props: TextfieldProps) => {
-  const { label, name, value, error, register, ...rest } = props;
+  const { label, name, value, error, className, register, ...rest } = props;
   return (
-    <div className='textfield'>
-      {label && <label className='textfield__label'>{label}</label>}
-      <input
-        className='textfield__input'
-        aria-invalid={error ? 'true' : 'false'}
-        defaultValue={value}
-        {...register(name)}
-        {...rest}
-      />
-      {error && <p>{error}</p>}
-    </div>
+    <TextField
+      className={className}
+      label={label}
+      id={name}
+      defaultValue={value}
+      {...register(name)}
+      {...rest}
+      fullWidth
+      error={error ? true : false}
+      helperText={error ? error : null}
+    />
   );
 };
 

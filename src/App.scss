@@ -1,20 +1,35 @@
+@font-face {
+  font-family: 'SF Pro Display';
+  src: local('SF Pro Display'),
+    url('./assets/fonts/SFProDisplay-Regular.ttf') format('truetype');
+}
+
 * {
   margin: 0;
   padding: 0;
   outline: 0;
   box-sizing: border-box;
+  font-family: 'SF Pro Display', sans-serif;
 }
 
-// @font-face {
-//   font-family: 'SF Pro Display';
-//   src: local('SF Pro Display'),
-//     url('./assets/fonts/SF-Pro-Display-Regular.ttf') format('truetype');
-// }
-
-* {
-  // font-family: 'SF Pro Display';
-  font-family: 'Roboto', sans-serif;
+.html {
+  font-size: 62.5%;
 }
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.App {
+  display: flex;
+  background: #ecf0f4;
+}
+
+main {
+  padding: 10px;
+}
+
 
 .container {
   max-width: 1200px;
