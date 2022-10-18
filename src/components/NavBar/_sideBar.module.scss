@@ -1,4 +1,4 @@
-.sidenav {
+.sideNav {
   width: 250px;
   transition: width 0.3s ease-in-out;
   height: 100vh;
@@ -6,8 +6,8 @@
   padding-top: 28px;
 }
 
-.sidenavClosed {
-  composes: sidenav;
+.sideNavClosed {
+  composes: sideNav;
   transition: width 0.3s ease-in-out;
   width: 60px;
 }
@@ -31,7 +31,7 @@
 }
 
 .sideitem-active {
-  background-color: #fff;
+  background-color: #fafafa;
 }
 
 .sideitem:hover {

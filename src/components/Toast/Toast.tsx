@@ -1,6 +1,6 @@
+import { Stack } from '@mui/material';
 import MuiAlert, { AlertProps } from '@mui/material/Alert';
 import Snackbar from '@mui/material/Snackbar';
-import Stack from '@mui/material/Stack';
 import * as React from 'react';
 
 const Alert = React.forwardRef<HTMLDivElement, AlertProps>(function Alert(
@@ -18,7 +18,6 @@ interface ToastProps {
 }
 
 const Toast = ({ severity, isOpen, message, setIsOpen }: ToastProps) => {
-  // const [open, setOpen] = React.useState(isOpen);
 
   const handleClose = (
     event?: React.SyntheticEvent | Event,
@@ -32,8 +31,7 @@ const Toast = ({ severity, isOpen, message, setIsOpen }: ToastProps) => {
   };
 
   return (
-    <Stack spacing={2} sx={{ width: '100%' }}>
-      <>{console.log('open', open)}</>
+    <Stack spacing={2} sx={{ width: '100%', height: '100%' }}>
       <Snackbar
         open={isOpen}
         onClose={handleClose}

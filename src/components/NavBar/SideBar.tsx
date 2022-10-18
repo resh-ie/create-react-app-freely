@@ -1,4 +1,3 @@
-// In Sidenav.js
 import KeyboardDoubleArrowLeftIcon from '@mui/icons-material/KeyboardDoubleArrowLeft';
 import KeyboardDoubleArrowRightIcon from '@mui/icons-material/KeyboardDoubleArrowRight';
 import { useState } from 'react';
@@ -13,7 +12,7 @@ export default function Sidenav() {
     setopen(!open);
   };
   return (
-    <div className={open ? styles.sidenav : styles.sidenavClosed}>
+    <div className={open ? styles.sideNav : styles.sideNavClosed}>
       <button className={styles.menuBtn} onClick={toggleOpen}>
         {open ? (
           <KeyboardDoubleArrowLeftIcon />

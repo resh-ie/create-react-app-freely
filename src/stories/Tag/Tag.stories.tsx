@@ -1,17 +1,20 @@
-import { ComponentMeta, ComponentStory } from "@storybook/react";
+import { ComponentMeta, ComponentStory } from '@storybook/react';
 
-import Tag from "../../components/Tag/Tag";
+import Tag from '../../components/Tag/Tag';
 
 export default {
-  title: "Components/Tag",
+  title: 'Components/Tag',
   component: Tag,
   argTypes: {
-    label: { control: "text" },
+    label: {
+      control: 'select',
+      options: ['NOT_STARTED', 'STARTED', 'FINISHED'],
+    },
   },
 } as ComponentMeta<typeof Tag>;
 
 const Template: ComponentStory<typeof Tag> = (args) => <Tag {...args} />;
 export const Default = Template.bind({});
 Default.args = {
-  label: "Not started",
+  label: 'NOT_STARTED',
 };

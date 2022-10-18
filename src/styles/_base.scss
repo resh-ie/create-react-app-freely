@@ -1,7 +1,9 @@
+@use './palette' as var;
+
 @font-face {
   font-family: 'SF Pro Display';
   src: local('SF Pro Display'),
-    url('./assets/fonts/SFProDisplay-Regular.ttf') format('truetype');
+    url('../assets/fonts/SFProDisplay-Regular.ttf') format('truetype');
 }
 
 * {
@@ -23,13 +25,12 @@ body {
 
 .App {
   display: flex;
-  background: #ecf0f4;
+  background: var.$background;
 }
 
 main {
   padding: 10px;
 }
-
 
 .container {
   max-width: 1200px;

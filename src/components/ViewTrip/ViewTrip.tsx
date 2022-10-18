@@ -1,5 +1,6 @@
 import { List, ListItem, ListItemText } from '@mui/material';
 
+import styles from './_viewTrip.module.scss';
 import TripHeader from '../TripHeader/TripHeader';
 
 interface ViewTripProps {
@@ -24,13 +25,21 @@ const ViewTrip = ({
         endDate={endDate}
         status={status}
       />
-      <List sx={{ width: '100%', bgcolor: 'background.paper' }}>
-        {destinations.map((destination: string, index: number) => (
-          <ListItem key={index}>
-            <ListItemText primary={destination} />
-          </ListItem>
-        ))}
-      </List>
+      <div className={styles.list}>
+        <List>
+          {destinations.length > 0 ? (
+            destinations.map((destination) => (
+              <ListItem key={destination}>
+                <ListItemText primary={destination} />
+              </ListItem>
+            ))
+          ) : (
+            <ListItem>
+              <ListItemText primary='No destinations added yet' />
+            </ListItem>
+          )}
+        </List>
+      </div>
     </div>
   );
 };

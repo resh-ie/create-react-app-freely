@@ -3,12 +3,11 @@ import { DatePicker } from '@mui/x-date-pickers';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { Controller } from 'react-hook-form';
+
 interface DatePickerCalendarProps {
   label: string;
   dateValue: Date;
-  // register: any;
   name: string;
-  // error: any;
   control: any;
 }
 

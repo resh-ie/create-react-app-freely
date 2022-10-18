@@ -1,9 +1,9 @@
 import { Box, createTheme, CssBaseline, ThemeProvider } from '@mui/material';
 import { useEffect } from 'react';
 import { Route, Routes } from 'react-router-dom';
-import './App.scss';
+// import './App.scss';
+import './styles/index.scss';
 
-// import SFProDisplay from './assets/fonts/SFProDisplay-Regular.ttf';
 import Sidenav from './components/NavBar/SideBar';
 import Home from './pages/Home';
 import Trip from './pages/Trip';

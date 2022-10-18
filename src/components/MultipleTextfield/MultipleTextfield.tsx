@@ -3,6 +3,21 @@ import { Controller } from 'react-hook-form';
 import styles from './_multipletextfields.module.scss';
 import PrimaryButton from '../Button/Button';
 import Textfield from '../Textfield/Textfield';
+
+interface MultipleTextfieldProps {
+  label: string;
+  fields: any;
+  control: any;
+  append: any;
+  remove: any;
+  register: any;
+  maxLimit: number;
+  error: any;
+  name: string;
+  deleteLabel: string;
+  appendLabel: string;
+}
+
 const MultipleTextfield = ({
   label,
   fields,
@@ -15,10 +30,10 @@ const MultipleTextfield = ({
   name,
   deleteLabel,
   appendLabel,
-}: any) => {
+}: MultipleTextfieldProps) => {
   return (
     <div id='text-data' className={styles['multipletextfields']}>
-      <div className={styles['multipletextfields-title']}>{label}</div>
+      <div className={styles['multipletextfields__title']}>{label}</div>
       {fields.map((item: any, index: number) => {
         const multiError = error;
         return (

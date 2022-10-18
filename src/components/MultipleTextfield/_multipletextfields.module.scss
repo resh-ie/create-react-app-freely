@@ -1,19 +1,11 @@
-$primaryColor: #3f51b5;
-$blue01: #3f51b5;
-$white01: #fff;
+@use '../../styles//palette' as var;
 
 .multipletextfields {
-  &-title {
+  &__title {
     font-weight: 600;
     font-size: 20px;
-    padding-bottom: 15px;
-    border-bottom: 1px solid rgba($primaryColor, 0.1);
-  }
-
-  &-row {
-    flex-direction: row;
-    padding-bottom: 20px;
-    border-bottom: 1px solid rgba($primaryColor, 0.1);
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(var.$blue01, 0.1);
   }
 
   &-top {
@@ -21,12 +13,6 @@ $white01: #fff;
     flex-direction: row;
     column-gap: 40px;
     margin: 10px 0;
-  }
-
-  &-main {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
   }
 
   &-add {

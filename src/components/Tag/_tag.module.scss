@@ -1,6 +1,8 @@
+@use '../../styles/palette' as var;
+
 .tag {
-  color: #fff;
-  background-color: #333;
+  color: var.$white01;
+  background-color: var.$grey01;
   padding: 0.5rem;
   border-radius: 0.5rem;
   display: inline-block;
@@ -13,13 +15,13 @@
   text-align: center;
 }
 .active {
-  background-color: #3f51b5;
+  background-color: var.$blue01;
 }
 
 .inactive {
-  background-color: #f44336;
+  background-color: var.$red01;
 }
 
 .finished {
-  background-color: #4caf50;
+  background-color: var.$green01;
 }

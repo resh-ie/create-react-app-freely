@@ -9,7 +9,10 @@ export default {
     title: { control: 'text' },
     startDate: { control: 'text' },
     endDate: { control: 'text' },
-    status: { control: 'text' },
+    status: {
+      control: 'select',
+      options: ['NOT_STARTED', 'STARTED', 'FINISHED'],
+    },
   },
 } as ComponentMeta<typeof Card>;
 
@@ -19,5 +22,5 @@ Default.args = {
   title: 'Card title',
   startDate: '2021-01-01',
   endDate: '2021-01-01',
-  status: 'Not started',
+  status: 'NOT_STARTED',
 };
